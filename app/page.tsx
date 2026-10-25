@@ -115,10 +115,18 @@ export default function Home() {
   const [quantity, setQuantity] = useState(1);
   const [galleryItem, setGalleryItem] = useState<(typeof gallery)[number] | null>(null);
   const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
+  const [transitionLabel, setTransitionLabel] = useState<string | null>(null);
 
   const scrollTo = (id: string) => {
     setMobileMenu(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const labels: Record<string, string> = { home: "THE MOMENT", events: "LIVE EXPERIENCES", calendar: "SAVE THE DATE", gallery: "THE MEMORIES", about: "HARRIS ENTERTAINMENT" };
+    const target = document.getElementById(id);
+    if (!target) return;
+    setTransitionLabel(labels[id] || "HARRIS ENTERTAINMENT");
+    window.setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => setTransitionLabel(null), 480);
+    }, 260);
   };
 
   const startTicket = (event: EventItem) => {
@@ -136,6 +144,9 @@ export default function Home() {
 
   return (
     <main>
+      <AnimatePresence>
+        {transitionLabel && <motion.div className="page-transition" initial={{ y: "-100%" }} animate={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: .32, ease: [0.76, 0, 0.24, 1] }} aria-hidden="true"><div className="transition-orbit transition-orbit-a"/><div className="transition-orbit transition-orbit-b"/><div className="transition-brand">H<span>E</span><i>.</i></div><div className="transition-copy"><span>HARRIS ENTERTAINMENT / ZW</span><strong>{transitionLabel}<b>.</b></strong><span className="transition-rule"/></div></motion.div>}
+      </AnimatePresence>
       <div className="announcement"><span className="announcement-pulse" /> THE NEXT EXPERIENCE IS CLOSER THAN YOU THINK <button onClick={() => scrollTo("events")}>DISCOVER EVENTS <ArrowRight size={12}/></button></div>
       <header className="site-header">
         <button className="brand" onClick={() => scrollTo("home")} aria-label="Harris Entertainment home">
