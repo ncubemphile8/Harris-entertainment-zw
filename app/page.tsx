@@ -40,6 +40,7 @@ const events: EventItem[] = [
 ];
 
 const gallery = [
+  { title: "Artist moments", type: "image", src: "/media/artist-stage-01.jpg", className: "", tag: "ARTISTS" },
   { title: "Live energy", type: "video", src: "/media/hero-event.mp4", className: "gallery-tall", tag: "LIVE" },
   { title: "The crowd", type: "image", src: "/media/gallery-01.jpg", className: "", tag: "CROWD" },
   { title: "On stage", type: "image", src: "/media/gallery-02.jpg", className: "gallery-wide", tag: "STAGE" },
@@ -165,8 +166,8 @@ export default function Home() {
 
       <section className="hero" id="home">
         <div className="hero-video-wrap">
-          <video className="hero-video" autoPlay muted loop playsInline poster="/media/hero-poster.jpg">
-            <source src="/media/hero-event.mp4" type="video/mp4"/>
+          <video className="hero-video" autoPlay muted loop playsInline poster="/media/dj-maphorisa-poster.jpg">
+            <source src="/media/dj-maphorisa-red-car.mp4" type="video/mp4"/>
           </video>
           <div className="hero-shade" />
           <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
@@ -209,7 +210,7 @@ export default function Home() {
 
       <section className="feature-strip">
         <div className="feature-strip-copy"><span className="eyebrow">MORE THAN AN EVENT</span><h2>IT'S A<br/><span>WHOLE FEELING.</span></h2><p>From the first beat to the last song, we bring people together through music, culture and shared experiences.</p><button className="button button-light" onClick={() => scrollTo("about")}>MEET HARRIS <ArrowRight size={15}/></button></div>
-        <div className="feature-visual"><div className="feature-visual-inner"><div className="feature-ring ring-a"/><div className="feature-ring ring-b"/><span className="feature-stamp">HARRIS<br/>ENTERTAINMENT<br/><b>EST. ZW</b></span><span className="feature-big-type">FEEL<br/>EVERY<br/>SECOND<span>.</span></span><span className="feature-coordinates">20°09' S / 28°35' E</span></div></div>
+        <div className="feature-visual artist-feature-visual"><img className="artist-feature-photo" src="/media/artist-stage-01.jpg" alt="Artist performing live on stage" /><div className="feature-visual-inner"><div className="feature-ring ring-a"/><div className="feature-ring ring-b"/><span className="feature-stamp">HARRIS<br/>ENTERTAINMENT<br/><b>EST. ZW</b></span><span className="feature-big-type">LIVE<br/>LOUD<br/>TOGETHER<span>.</span></span><span className="feature-coordinates">20°09' S / 28°35' E</span></div></div>
       </section>
 
       <section className="section calendar-section" id="calendar">
