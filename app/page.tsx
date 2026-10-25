@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowDown, ArrowDownRight, ArrowRight, CalendarDays, Check, ChevronLeft,
@@ -148,19 +149,19 @@ export default function Home() {
       <AnimatePresence>
         {transitionLabel && <motion.div className="page-transition" initial={{ y: "-100%" }} animate={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: .32, ease: [0.76, 0, 0.24, 1] }} aria-hidden="true"><div className="transition-orbit transition-orbit-a"/><div className="transition-orbit transition-orbit-b"/><div className="transition-brand">H<span>E</span><i>.</i></div><div className="transition-copy"><span>HARRIS ENTERTAINMENT / ZW</span><strong>{transitionLabel}<b>.</b></strong><span className="transition-rule"/></div></motion.div>}
       </AnimatePresence>
-      <div className="announcement"><span className="announcement-pulse" /> THE NEXT EXPERIENCE IS CLOSER THAN YOU THINK <button onClick={() => scrollTo("events")}>DISCOVER EVENTS <ArrowRight size={12}/></button></div>
+      <div className="announcement"><span className="announcement-pulse" /> THE NEXT EXPERIENCE IS CLOSER THAN YOU THINK <Link href="/events">DISCOVER EVENTS <ArrowRight size={12}/></Link></div>
       <header className="site-header">
         <button className="brand" onClick={() => scrollTo("home")} aria-label="Harris Entertainment home">
           <span className="brand-mark">H<span>E</span></span><span className="brand-word">HARRIS<span>ENTERTAINMENT</span></span>
         </button>
         <nav className={mobileMenu ? "nav-links nav-open" : "nav-links"}>
-          <button onClick={() => scrollTo("events")}>Events</button>
-          <button onClick={() => scrollTo("calendar")}>Calendar</button>
-          <button onClick={() => scrollTo("gallery")}>Gallery</button>
-          <button onClick={() => scrollTo("about")}>About</button>
+          <Link href="/events" onClick={() => setMobileMenu(false)}>Events</Link>
+          <Link href="/calendar" onClick={() => setMobileMenu(false)}>Calendar</Link>
+          <Link href="/gallery" onClick={() => setMobileMenu(false)}>Gallery</Link>
+          <Link href="/about" onClick={() => setMobileMenu(false)}>About</Link>
           <a href={whatsappUrl("Hi Harris Entertainment, I'd like to make an enquiry.")} target="_blank" rel="noreferrer">Contact <ExternalLink size={12}/></a>
         </nav>
-        <button className="header-cta" onClick={() => scrollTo("events")}>FIND YOUR EVENT <ArrowRight size={15}/></button>
+        <Link className="header-cta" href="/events">FIND YOUR EVENT <ArrowRight size={15}/></Link>
         <button className="menu-toggle" aria-label="Toggle menu" onClick={() => setMobileMenu(!mobileMenu)}>{mobileMenu ? <X/> : <Menu/>}</button>
       </header>
 
