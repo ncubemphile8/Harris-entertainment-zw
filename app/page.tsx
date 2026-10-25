@@ -56,7 +56,7 @@ function EventArtwork({ event, hero = false }: { event: EventItem; hero?: boolea
   return (
     <div className={`event-artwork ${hero ? "event-artwork-hero" : ""}`}>
       {isVideo ? (
-        <video className="artwork-media" src={event.image} autoPlay muted loop playsInline poster="/media/dj-maphorisa-poster.jpg" />
+        <video className="artwork-media" src={event.image} autoPlay muted loop playsInline poster="/media/hero-poster.jpg" />
       ) : (
         <div className="artwork-placeholder" style={{ backgroundImage: `linear-gradient(145deg, rgba(7,8,10,.1), rgba(7,8,10,.78)), url('${event.image}')` }} />
       )}
@@ -168,7 +168,7 @@ export default function Home() {
       <section className="hero" id="home">
         <div className="hero-video-wrap">
           <video className="hero-video" autoPlay muted loop playsInline poster="/media/dj-maphorisa-poster.jpg">
-            <source src="/media/dj-maphorisa-red-car.mp4" type="video/mp4"/>
+            <source src="/media/1000551179.mp4" type="video/mp4"/>
           </video>
           <div className="hero-shade" />
           <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
@@ -211,7 +211,7 @@ export default function Home() {
 
       <section className="feature-strip">
         <div className="feature-strip-copy"><span className="eyebrow">MORE THAN AN EVENT</span><h2>IT'S A<br/><span>WHOLE FEELING.</span></h2><p>From the first beat to the last song, we bring people together through music, culture and shared experiences.</p><button className="button button-light" onClick={() => scrollTo("about")}>MEET HARRIS <ArrowRight size={15}/></button></div>
-        <div className="feature-visual artist-feature-visual"><img className="artist-feature-photo" src="/media/artist-stage-01.jpg" alt="Artist performing live on stage" /><div className="feature-visual-inner"><div className="feature-ring ring-a"/><div className="feature-ring ring-b"/><span className="feature-stamp">HARRIS<br/>ENTERTAINMENT<br/><b>EST. ZW</b></span><span className="feature-big-type">LIVE<br/>LOUD<br/>TOGETHER<span>.</span></span><span className="feature-coordinates">20°09' S / 28°35' E</span></div></div>
+        <div className="feature-visual artist-feature-visual"><video className="artist-feature-photo" src="/media/1000551179.mp4" autoPlay muted loop playsInline aria-label="Harris Entertainment live crowd footage" /><div className="feature-visual-inner"><div className="feature-ring ring-a"/><div className="feature-ring ring-b"/><span className="feature-stamp">LIVE<br/>THE MOMENT<br/><b>EST. ZW</b></span><span className="feature-big-type">LIVE<br/>LOUD<br/>TOGETHER<span>.</span></span><span className="feature-coordinates">20°09' S / 28°35' E</span></div></div>
       </section>
 
       <section className="section calendar-section" id="calendar">
